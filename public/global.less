@@ -1,0 +1,92 @@
+@import './partials/_variables.less';
+@import './partials/_colors.less';
+@import './partials/iconfonts.css';
+@import 'vue3-easy-data-table/dist/style.css';
+
+
+* {
+    margin : 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.field {
+    border       : 1px solid var(--border);
+    font-size    : 16px;
+    border-radius: 2px;
+    color        : var(--gray-text);
+    height       : 40px;
+    padding-left : 10px;
+    width        : 100%;
+
+    &::-webkit-input-placeholder {
+        color      : var(--hints);
+        font-weight: 500;
+    }
+
+    &::-moz-placeholder {
+        color      : var(--hints);
+        font-weight: 500;
+    }
+
+    &:-moz-placeholder {
+        color      : var(--hints);
+        font-weight: 500;
+    }
+
+    &:-ms-input-placeholder {
+        color      : var(--hints);
+        font-weight: 500;
+    }
+}
+
+.vue3-easy-data-table {
+    width        : 1040px;
+    border       : 1px solid var(--border);
+    box-shadow   : 0 1px 6px rgba(0, 0, 0, 0.06);
+    border-radius: 2px;
+
+    &__header {
+        tr {
+            background-color: var(--background);
+        }
+
+        th {
+            padding         : 0;
+            margin          : 0;
+            background-color: transparent !important;
+        }
+
+        .header {
+            font-style : normal;
+            font-weight: 600;
+            font-size  : 14px;
+            color      : var(--btn-text);
+            padding    : 16px 20px 13px 12px;
+        }
+    }
+
+    &__body {
+        tr {
+            td {
+                padding    : 16px 20px 13px 20px !important;
+                font-weight: 500;
+                font-size  : 14px;
+                color      : var(--gray-text)
+            }
+        }
+    }
+
+    &__main.hoverable tr:hover td {
+        background-color: var(--background) !important;
+    }
+}

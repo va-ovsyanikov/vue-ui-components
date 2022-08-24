@@ -4,3 +4,4 @@ import VModalSettings from '../components/modals/v-modal-settings.vue'
 test('tests modal', ()=>{
     render(VModalSettings)
 })
+

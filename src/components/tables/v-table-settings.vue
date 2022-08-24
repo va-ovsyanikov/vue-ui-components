@@ -12,7 +12,7 @@
           <h3 class="table__settings__title">Table settings</h3>
           <v-button
             type="icon"
-            icon="icon-Cloud_Check"
+            icon="ci-close_big"
             :onClick="toggleModalSettings"
           ></v-button>
         </div>
@@ -80,7 +80,7 @@ const onDrag = () => {
   emit("onDrag");
 };
 
-//showAll
+//showAllItem
 const showAllItem = ref(false);
 watch(showAllItem, () => {
   props.items.forEach((el) => {

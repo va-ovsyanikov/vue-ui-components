@@ -1,5 +1,5 @@
 <template>
-  <i :class="['icon',classIcon]"></i>
+  <i :class="['icon',classIcon]" data-testid="icon"></i>
 </template>
 
 <script setup>

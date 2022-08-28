@@ -5,6 +5,7 @@
       icon="ci-plus"
       :iconOnly="true"
       :onClick="toggleModalSettings"
+      data-testid="btnModalShow"
     ></v-button>
     <v-modal-settings v-if="modal">
       <template v-slot:header>
@@ -14,6 +15,7 @@
             type="icon"
             icon="ci-close_big"
             :onClick="toggleModalSettings"
+            data-testid="btnModalHide"
           ></v-button>
         </div>
       </template>

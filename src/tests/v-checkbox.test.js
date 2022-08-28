@@ -1,23 +1,38 @@
-import { render, screen } from '@testing-library/vue'
-import vCheckbox from '../components/form/inputs/v-checkbox.vue'
+import { mount } from '@vue/test-utils'
+import VCheckbox from '../components/form/inputs/v-checkbox.vue'
 
-test('checkbox render checked with label', () => {
-    const label = "Remember me"
+const renderCheckbox = (label) => {
     const options = {
         props: {
-            label: label,
+            label,
             modelValue: true,
+            trueValue: true,
         }
     }
-    render(vCheckbox, options)
+    const wrapper = mount(VCheckbox, options)
+    return wrapper
+}
 
-    expect(screen.getByLabelText(label).checked).toBe(true)
+test('label render', () => {
+ const label = "Remember me"
+    const wrapper = renderCheckbox(label)
+    expect(wrapper.find('.checkbox__label__text').text()).toBe(label)
 })
 
 
-test('checkbox render unchecked', () => {
+test('event change', () => {
+    const wrapper = mount(VCheckbox)
+    wrapper.find('input').trigger('change')
+    expect(wrapper.emitted()).toHaveProperty("update:modelValue")
+})
 
-    render(vCheckbox)
 
-    expect(screen.getByRole('checkbox').checked).toBe(false)
+test('class checked', () => {
+    const wrapper = renderCheckbox()
+    expect(wrapper.classes()).toContain('checked')
+})
+
+test('input checked', () => {
+    const wrapper = renderCheckbox()
+    expect(wrapper.get('input').element.checked).toBeTruthy()
 })

@@ -36,10 +36,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  iconOnlyNaked: {
-    type: Boolean,
-    default: false,
-  },
   icon: {
     type: String,
     default: "",

@@ -1,21 +1,21 @@
 <template>
   <div class="table__settings">
     <v-button
+      class="btnShowModal"
       type="secondary"
       icon="ci-plus"
       :iconOnly="true"
       :onClick="toggleModalSettings"
-      data-testid="btnModalShow"
     ></v-button>
     <v-modal-settings v-if="modal">
       <template v-slot:header>
         <div class="table__settings__header">
           <h3 class="table__settings__title">Table settings</h3>
           <v-button
+          class="btnHideModal"
             type="icon"
             icon="ci-close_big"
             :onClick="toggleModalSettings"
-            data-testid="btnModalHide"
           ></v-button>
         </div>
       </template>
@@ -31,7 +31,7 @@
           <span class="table__settings__show__desc">Show All</span>
         </div>
         <div class="table__settings__body">
-          <v-draggable :list="items" @change="onDrag">
+          <v-draggable class="draggable" :list="items" @change="onDrag">
             <div
               class="table__settings__item"
               v-for="item in items"

@@ -1,50 +1,56 @@
-import { render, screen, waitForElementToBeRemoved } from '@testing-library/vue'
-import userEvent from '@testing-library/user-event'
-import matchers from '@testing-library/jest-dom/matchers';
+// import { render, screen, waitForElementToBeRemoved } from '@testing-library/vue'
+// import userEvent from '@testing-library/user-event'
+// import matchers from '@testing-library/jest-dom/matchers';
+import { mount } from '@vue/test-utils'
 import VTableSettings from '../components/tables/v-table-settings.vue'
-expect.extend(matchers);
-const user = userEvent.setup()
+// expect.extend(matchers);
+// const user = userEvent.setup()
 
 
-const items = [
-    { text: "Status", value: "status", enabled: true }
-];
+test('show modal', async () => {
+    const wrapper = mount(VTableSettings)
+    await wrapper.find('.btnShowModal').trigger('click')
+    expect(wrapper.find('.modal__settings').exists()).toBeTruthy()
+})
 
-const options = {
-    // props: {
-    //     items,
-    //     showAll: true
-    // },
-    data: () => ({
-        modal: true
+test('show all items', async () => {
+    const wrapper = mount(VTableSettings, {
+        props: {
+            showAll: true
+        }
     })
-}
-
-it('render when click button', async () => {
-    render(VTableSettings)
-
-    await user.click(screen.getByTestId('btnModalShow'))
-
-    screen.getByText('Table settings')
-
-    //  user.click(screen.getByTestId('btnModalHide'))
-    //    expect(screen.getByText('Table settings')).not.toBe()
+    await wrapper.find('.btnShowModal').trigger('click')
+    expect(wrapper.find('.table__settings__show').exists()).toBeTruthy()
 })
 
-it('render when click button', async () => {
-    render(VTableSettings)
-
-    // await user.click(screen.getByTestId('btnModalShow'))
-    // await user.click(screen.getByTestId('btnModalHide'))
-screen.debug()
-    // expect(screen.getByText('Table settings')).not.toBeVisible()
+test('hide modal', async () => {
+    const wrapper = mount(VTableSettings)
+    await wrapper.find('.btnShowModal').trigger('click')
+    await wrapper.find('.btnHideModal').trigger('click')
+    expect(wrapper.find('.modal__settings').exists()).toBeFalsy()
 })
 
-// it('render when click', async () => {
-//         render(VTableSettings)
+test('show items ', async () => {
+    const items = [
+        { text: "Status", value: "status", enabled: true },
+        { text:"Patient Name", value: "name", enabled: true },
+        { text: "DOB", value: "dob", enabled: true }
+    ];
+    const wrapper = mount(VTableSettings, {
+        props:{
+            items
+        }
+    } )
+    await wrapper.find('.btnShowModal').trigger('click')
+    expect(wrapper.findAll('.table__settings__name')[0].text()).toBe(items[0].text)
+    expect(wrapper.findAll('.table__settings__name')[1].text()).toBe(items[1].text)
+    expect(wrapper.findAll('.table__settings__name')[2].text()).toBe(items[2].text)
+})
 
-//         // await user.click(screen.getByTestId('btnModalHide'))
+test('emit', async () => {
+    const wrapper = mount(VTableSettings)
+    await wrapper.find('.btnShowModal').trigger('click')
+    wrapper.find('.draggable').trigger('change')
+     expect(wrapper.emitted()).toHaveProperty('onDrag')
+})
 
-//         screen.debug()
-//         // screen.getByText('Table settings').not.toBe()
-// })

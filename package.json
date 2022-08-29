@@ -19,7 +19,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "test": "vitest"
   },
   "dependencies": {
     "less": "^4.1.3",

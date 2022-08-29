@@ -45,14 +45,7 @@ test('show items ', async () => {
    wrapper.findAll('.table__settings__name').forEach((el, i) => expect(el.text()).toBe(items[i].text))
 })
 
-test('emit', async () => {
-    const wrapper = mount(VTableSettings)
-    await wrapper.find('.btnShowModal').trigger('click')
-    wrapper.find('.draggable').trigger('change')
-    expect(wrapper.emitted()).toHaveProperty('onDrag')
-})
-
-test('trigger', async () => {
+test('drag and drop elements', async () => {
     const wrapper = mount(VTableSettings)
     await wrapper.find('.btnShowModal').trigger('click')
     wrapper.find('.draggable').trigger('change')

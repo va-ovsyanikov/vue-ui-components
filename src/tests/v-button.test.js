@@ -14,8 +14,8 @@ const renderButton = (type = '', disabled = '', iconOnly = '', loading = '') => 
             default: 'Button'
         }
     }
-    const wrapper = mount(VButton, options)
-    return wrapper
+     
+    return mount(VButton, options)
 }
 
 describe('name button', () => {

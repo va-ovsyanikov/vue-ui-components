@@ -33,24 +33,28 @@ test('hide modal', async () => {
 test('show items ', async () => {
     const items = [
         { text: "Status", value: "status", enabled: true },
-        { text:"Patient Name", value: "name", enabled: true },
+        { text: "Patient Name", value: "name", enabled: true },
         { text: "DOB", value: "dob", enabled: true }
     ];
     const wrapper = mount(VTableSettings, {
-        props:{
+        props: {
             items
         }
-    } )
+    })
     await wrapper.find('.btnShowModal').trigger('click')
-    expect(wrapper.findAll('.table__settings__name')[0].text()).toBe(items[0].text)
-    expect(wrapper.findAll('.table__settings__name')[1].text()).toBe(items[1].text)
-    expect(wrapper.findAll('.table__settings__name')[2].text()).toBe(items[2].text)
+   wrapper.findAll('.table__settings__name').forEach((el, i) => expect(el.text()).toBe(items[i].text))
 })
 
 test('emit', async () => {
     const wrapper = mount(VTableSettings)
     await wrapper.find('.btnShowModal').trigger('click')
     wrapper.find('.draggable').trigger('change')
-     expect(wrapper.emitted()).toHaveProperty('onDrag')
+    expect(wrapper.emitted()).toHaveProperty('onDrag')
 })
 
+test('trigger', async () => {
+    const wrapper = mount(VTableSettings)
+    await wrapper.find('.btnShowModal').trigger('click')
+    wrapper.find('.draggable').trigger('change')
+    expect(wrapper.emitted()).toHaveProperty('onDrag')
+})

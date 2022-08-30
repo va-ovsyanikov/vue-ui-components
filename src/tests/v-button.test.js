@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
 import VButton from '../components/buttons/v-button.vue'
 
-const renderButton = (type = '', disabled = '', iconOnly = '', loading = '') => {
+const renderButton = (type) => {
     const options = {
         props: {
             type,
-            disabled,
-            iconOnly,
-            loading,
+            disabled:true,
+            iconOnly:true,
+            loading:true,
             icon:'icon'
         },
         slots: {
@@ -36,26 +36,22 @@ describe('classes', () => {
         expect(wrapper.classes()).toContain(`btn-${type}`)
     })
     test('class disabled', () => {
-        const disabled = true
-        const wrapper = renderButton(disabled)
+        const wrapper = renderButton()
         expect(wrapper.classes()).toContain('disabled')
     })
     test('class iconOnly', () => {
-        const iconOnly = true
-        const wrapper = renderButton(iconOnly)
+        const wrapper = renderButton()
         expect(wrapper.classes()).toContain('iconOnly')
     })
     test('class loading', () => {
-        const loading = true
-        const wrapper = renderButton(loading)
+        const wrapper = renderButton()
         expect(wrapper.classes()).toContain('loading')
         expect(wrapper.get('.btn__spinner').isVisible()).toBe(true)
 
     })
 })
-describe('icon', () => {
+
     test('icon render', () => {
         const wrapper = renderButton()
         expect(wrapper.find('.btn__icon').isVisible()).toBe(true)
     })
-})

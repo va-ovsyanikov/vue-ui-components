@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import VCheckbox from '../components/form/inputs/v-checkbox.vue'
+import VCheckbox from '../../../components/form/inputs/v-checkbox.vue'
 
 const renderCheckbox = (label) => {
     const options = {

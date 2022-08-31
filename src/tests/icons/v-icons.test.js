@@ -2,7 +2,7 @@
 // import matchers from '@testing-library/jest-dom/matchers';
 // import userEvent from '@testing-library/user-event'
 import { mount } from '@vue/test-utils'
-import VIcon from '../components/icons/v-icon.vue'
+import VIcon from '../../components/icons/v-icon.vue'
 
 // expect.extend(matchers);
 // const user = userEvent.setup()

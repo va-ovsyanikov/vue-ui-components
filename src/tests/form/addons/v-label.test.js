@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import VLabel from '../components/form/addons/v-label.vue'
+import VLabel from '../../../components/form/addons/v-label.vue'
 
 const label = 'label'
 const required = true

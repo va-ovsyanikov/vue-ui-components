@@ -2,7 +2,7 @@
 // import userEvent from '@testing-library/user-event'
 // import matchers from '@testing-library/jest-dom/matchers';
 import { mount } from '@vue/test-utils'
-import VTableSettings from '../components/tables/v-table-settings.vue'
+import VTableSettings from '../../components/tables/v-table-settings.vue'
 // expect.extend(matchers);
 // const user = userEvent.setup()
 

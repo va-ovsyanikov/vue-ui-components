@@ -48,6 +48,7 @@ const updateValue = (value) => {
 const onClickTrue = () => {
   updateValue(true);
 };
+
 const onClickFalse = () => {
   updateValue(false);
 };

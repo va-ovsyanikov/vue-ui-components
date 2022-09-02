@@ -13,12 +13,12 @@ test('placeholder', () => {
 
 
 describe('classes textarea', () => {
-    test('class focus', () => {
-        const wrapper = mount(VTextarea)
-        wrapper.find('.textarea__field').trigger('focus');
-        console.log(wrapper.html())
-        expect(wrapper.classes()).toContain('focus')
-    })
+    // test('class focus', () => {
+    //     const wrapper = mount(VTextarea)
+    //     wrapper.find('.textarea__field').trigger('focus');
+    //     console.log(wrapper.html())
+    //     expect(wrapper.classes()).toContain('focus')
+    // })
     test('class error', () => {
         const wrapper = mount(VTextarea, {
             props: {

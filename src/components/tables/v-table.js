@@ -70,7 +70,7 @@ export default function () {
   // initial load
   loadFromServer();
 
-  watch(serverOptions, (value) => { loadFromServer(); }, { deep: true });
+  watch(serverOptions, (value) => { loadFromServer() }, { deep: true });
 
   return {
     items,

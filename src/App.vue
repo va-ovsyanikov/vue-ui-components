@@ -242,7 +242,11 @@
           <v-table-header>
             <template v-slot:left><h3>Last orders</h3></template>
             <template v-slot:right>
-              <v-table-settings :items="headers" :showAll="true" icon="ci-plus"/>
+              <v-table-settings
+                :items="headers"
+                :showAll="true"
+                icon="ci-plus"
+              />
             </template>
           </v-table-header>
           <VTable
@@ -365,6 +369,55 @@ const list = ref([
   { key: "Expire Date", value: "01.02.2022" },
   { key: "Address", value: "01.02.2022" },
 ]);
+
+// const comp = computed(()=>{
+//   const data = {
+//     from: 0, to: 10
+// }
+
+// for (let item of Object.values(data)){
+//     console.log(item)
+// }
+// })
+function func() {
+  const obj = {
+    from: 0,
+    to: 10,
+  };
+  //1)
+  obj[Symbol.iterator] = function () {
+    let from = this.from;
+    let to = this.to;
+    return {
+      next() {
+        if (from <= to) {
+          return {
+            done: false,
+            value: from++,
+          };
+        } else {
+          return {
+            done: true,
+          };
+        }
+      },
+    };
+  };
+
+for(let item of obj){
+  console.log(item)
+}
+  obj[Symbol.iterator] = function () {
+    return Array.from(
+      { length: this.to - this.from + 1 },
+      (_, n) => this.from + n
+    ).values();
+  };
+  let array = Array.from(obj);
+
+  console.log(array);
+}
+func();
 </script>
 <style lang="less" scoped>
 .container {

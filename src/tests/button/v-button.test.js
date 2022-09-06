@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import VButton from '../../components/buttons/v-button.vue'
+import vButton from '../../components/buttons/v-button.vue'
 
 const renderButton = (type) => {
     const options = {
@@ -15,7 +15,7 @@ const renderButton = (type) => {
         }
     }
 
-    return mount(VButton, options)
+    return mount(vButton, options)
 }
 
 describe('name button', () => {
@@ -27,7 +27,7 @@ describe('name button', () => {
 })
 describe('classes', () => {
     test('class default', () => {
-        const wrapper = mount(VButton)
+        const wrapper = mount(vButton)
         expect(wrapper.classes()).toContain('btn')
     })
     test('class type', () => {

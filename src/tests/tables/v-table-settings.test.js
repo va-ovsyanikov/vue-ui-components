@@ -1,20 +1,16 @@
-// import { render, screen, waitForElementToBeRemoved } from '@testing-library/vue'
-// import userEvent from '@testing-library/user-event'
-// import matchers from '@testing-library/jest-dom/matchers';
 import { mount } from '@vue/test-utils'
-import VTableSettings from '../../components/tables/v-table-settings.vue'
-// expect.extend(matchers);
-// const user = userEvent.setup()
+import vTableSettings from '../../components/tables/v-table-settings.vue'
+
 
 
 test('show modal', async () => {
-    const wrapper = mount(VTableSettings)
+    const wrapper = mount(vTableSettings)
     await wrapper.find('.btnShowModal').trigger('click')
     expect(wrapper.find('.modal__settings').exists()).toBeTruthy()
 })
 
 test('show all items', async () => {
-    const wrapper = mount(VTableSettings, {
+    const wrapper = mount(vTableSettings, {
         props: {
             showAll: true
         }
@@ -24,7 +20,7 @@ test('show all items', async () => {
 })
 
 test('hide modal', async () => {
-    const wrapper = mount(VTableSettings)
+    const wrapper = mount(vTableSettings)
     await wrapper.find('.btnShowModal').trigger('click')
     await wrapper.find('.btnHideModal').trigger('click')
     expect(wrapper.find('.modal__settings').exists()).toBeFalsy()
@@ -36,7 +32,7 @@ test('show items ', async () => {
         { text: "Patient Name", value: "name", enabled: true },
         { text: "DOB", value: "dob", enabled: true }
     ];
-    const wrapper = mount(VTableSettings, {
+    const wrapper = mount(vTableSettings, {
         props: {
             items
         }
@@ -46,7 +42,7 @@ test('show items ', async () => {
 })
 
 test('drag and drop elements', async () => {
-    const wrapper = mount(VTableSettings)
+    const wrapper = mount(vTableSettings)
     await wrapper.find('.btnShowModal').trigger('click')
     wrapper.find('.draggable').trigger('change')
     expect(wrapper.emitted()).toHaveProperty('onDrag')

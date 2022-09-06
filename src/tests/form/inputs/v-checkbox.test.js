@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import VCheckbox from '../../../components/form/inputs/v-checkbox.vue'
+import vCheckbox from '../../../components/form/inputs/v-checkbox.vue'
 
 const renderCheckbox = (label) => {
     const options = {
@@ -9,7 +9,7 @@ const renderCheckbox = (label) => {
             trueValue: true,
         }
     }
-    const wrapper = mount(VCheckbox, options)
+    const wrapper = mount(vCheckbox, options)
     return wrapper
 }
 
@@ -21,7 +21,7 @@ test('label render', () => {
 
 
 test('event change', () => {
-    const wrapper = mount(VCheckbox)
+    const wrapper = mount(vCheckbox)
     wrapper.find('input').trigger('change')
     expect(wrapper.emitted()).toHaveProperty("update:modelValue")
 })

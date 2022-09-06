@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import VLabel from '../../../components/form/addons/v-label.vue'
+import vLabel from '../../../components/form/addons/v-label.vue'
 
 const label = 'label'
 const required = true
@@ -13,12 +13,12 @@ const renderLabel = (label, required = false) => {
             required,
         }
     }
-    return mount(VLabel, options)
+    return mount(vLabel, options)
 }
 
 describe('classes', () => {
     test('class default', () => {
-        const wrapper = mount(VLabel)
+        const wrapper = mount(vLabel)
         expect(wrapper.classes()).toContain('label')
     })
     test('class focus', () => {
@@ -45,3 +45,4 @@ test('required field', () => {
     const wrapper = renderLabel(label, required)
     expect(wrapper.find('label > span').text()).toBe('*')
 })
+

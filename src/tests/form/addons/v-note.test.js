@@ -1,11 +1,11 @@
 import {mount} from '@vue/test-utils'
-import VNote from '../../../components/form/addons/v-note.vue'
+import vNote from '../../../components/form/addons/v-note.vue'
 
 
 
 test('noteMessage', ()=>{
  const  noteMessage = 'note'
-    const wrapper = mount(VNote, {
+    const wrapper = mount(vNote, {
         props:{
             noteMessage
         }
@@ -16,7 +16,7 @@ test('noteMessage', ()=>{
 
 test('errorMessage', ()=>{
     const  errorMessage = 'error'
-    const wrapper = mount(VNote, {
+    const wrapper = mount(vNote, {
         props:{
             errorMessage
         }

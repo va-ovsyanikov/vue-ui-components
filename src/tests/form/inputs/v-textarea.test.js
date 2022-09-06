@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import VTextarea from '../../../components/form/inputs/v-textarea.vue'
+import vTextarea from '../../../components/form/inputs/v-textarea.vue'
 
 const label = "label"
 
@@ -7,14 +7,14 @@ describe('textarea', () => {
     describe('classes textarea', () => {
         
         // test('class focus', () => {
-        //     const wrapper = mount(VTextarea)
+        //     const wrapper = mount(vTextarea)
         //     wrapper.find('.textarea__field').trigger('focus');
         //     console.log(wrapper.html())
         //     expect(wrapper.classes()).toContain('focus')
         // })
 
         test('class error', () => {
-            const wrapper = mount(VTextarea, {
+            const wrapper = mount(vTextarea, {
                 props: {
                     error: true
                 }
@@ -23,7 +23,7 @@ describe('textarea', () => {
         })
 
         test('class disabled', () => {
-            const wrapper = mount(VTextarea, {
+            const wrapper = mount(vTextarea, {
                 props: {
                     disabled: true
                 }
@@ -33,14 +33,14 @@ describe('textarea', () => {
     })
 
     test('emit input', () => {
-        const wrapper = mount(VTextarea)
+        const wrapper = mount(vTextarea)
         wrapper.find('textarea').trigger('input')
         expect(wrapper.emitted()).toHaveProperty('update:modelValue')
     })
 
     test('placeholder', () => {
         const placeholder = 'placeholder'
-        const wrapper = mount(VTextarea, {
+        const wrapper = mount(vTextarea, {
             props: {
                 placeholder
             }
@@ -53,7 +53,7 @@ describe('prompt', () => {
     describe('text', () => {
         test('error text', () => {
             const errorMessage = 'Error message'
-            const wrapper = mount(VTextarea, {
+            const wrapper = mount(vTextarea, {
                 props: {
                     errorMessage
                 }
@@ -63,7 +63,7 @@ describe('prompt', () => {
 
         test('note text', () => {
             const noteMessage = 'Note message'
-            const wrapper = mount(VTextarea, {
+            const wrapper = mount(vTextarea, {
                 props: {
                     noteMessage
                 }
@@ -73,7 +73,7 @@ describe('prompt', () => {
     })
 
     test('label field', () => {
-        const wrapper = mount(VTextarea, {
+        const wrapper = mount(vTextarea, {
             props: {
                 label
             }
@@ -82,7 +82,7 @@ describe('prompt', () => {
     })
 
     test('required field', () => {
-        const wrapper = mount(VTextarea, {
+        const wrapper = mount(vTextarea, {
             props: {
                 required: true,
                 label
@@ -93,7 +93,7 @@ describe('prompt', () => {
     })
 
     test('class error', () => {
-        const wrapper = mount(VTextarea, {
+        const wrapper = mount(vTextarea, {
             props: {
                 error: true
             }
@@ -102,7 +102,7 @@ describe('prompt', () => {
     })
 
     test('class disabled', () => {
-        const wrapper = mount(VTextarea, {
+        const wrapper = mount(vTextarea, {
             props: {
                 disabled: true
             }

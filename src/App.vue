@@ -369,55 +369,6 @@ const list = ref([
   { key: "Expire Date", value: "01.02.2022" },
   { key: "Address", value: "01.02.2022" },
 ]);
-
-// const comp = computed(()=>{
-//   const data = {
-//     from: 0, to: 10
-// }
-
-// for (let item of Object.values(data)){
-//     console.log(item)
-// }
-// })
-function func() {
-  const obj = {
-    from: 0,
-    to: 10,
-  };
-  //1)
-  obj[Symbol.iterator] = function () {
-    let from = this.from;
-    let to = this.to;
-    return {
-      next() {
-        if (from <= to) {
-          return {
-            done: false,
-            value: from++,
-          };
-        } else {
-          return {
-            done: true,
-          };
-        }
-      },
-    };
-  };
-
-for(let item of obj){
-  console.log(item)
-}
-  obj[Symbol.iterator] = function () {
-    return Array.from(
-      { length: this.to - this.from + 1 },
-      (_, n) => this.from + n
-    ).values();
-  };
-  let array = Array.from(obj);
-
-  console.log(array);
-}
-func();
 </script>
 <style lang="less" scoped>
 .container {

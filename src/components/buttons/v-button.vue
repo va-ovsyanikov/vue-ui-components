@@ -68,7 +68,6 @@ const props = defineProps({
   justify-content: center;
   align-items: center;
   text-decoration: none;
-
   &.loading {
     pointer-events: none;
 

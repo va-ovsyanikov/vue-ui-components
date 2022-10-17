@@ -9,18 +9,17 @@
     >
       <div class="quantity__wrap">
         <button class="quantity__btn__prepend" @click="onClickDecrease">
-          <v-icon>{{prependIcon}}</v-icon>
+          <v-icon>{{ prependIcon }}</v-icon>
         </button>
         <input
           class="quantity__field"
-          :value="modelValue"
+          v-model="quantity"
           type="number"
           :min="min"
           :max="max"
-          @input="updateValue($event.target.value)"
         />
         <button class="quantity__btn__append" @click="onClickIncrease">
-          <v-icon>{{appendIcon}}</v-icon>
+          <v-icon>{{ appendIcon }}</v-icon>
         </button>
       </div>
     </v-group>
@@ -28,7 +27,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import vGroup from "../addons-group/v-group.vue";
 import vIcon from "../../icons/v-icon.vue";
 const props = defineProps({
@@ -78,20 +77,29 @@ const count = ref(props.min);
 
 //emit
 const emit = defineEmits(["update:modelValue"]);
-const updateValue = (value) => {
-  emit("update:modelValue", value);
-};
-
+// const updateValue = (value) => {
+//   emit("update:modelValue", value);
+// };
+let quantity = computed({
+  get() {
+    return props.modelValue;
+  },
+  set(newValue) {
+    emit("update:modelValue", newValue);
+  },
+});
 const onClickDecrease = () => {
   if (props.min < count.value) {
     count.value--;
-    updateValue(count.value);
+    quantity.value = count.value;
+    // updateValue(count.value);
   }
 };
 const onClickIncrease = () => {
   if (props.max > count.value) {
     count.value++;
-    updateValue(count.value);
+    quantity.value = count.value;
+    // updateValue(count.value);
   }
 };
 </script>

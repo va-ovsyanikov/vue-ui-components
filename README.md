@@ -1,6 +1,5 @@
 
 Status of Last Deployment:<br>
-
 <img src="https://github.com/va-ovsyanikov/vue-uikit-components/actions/workflows/UI-KIT/badge.svg">
 
 # DMEWEB UI KIT

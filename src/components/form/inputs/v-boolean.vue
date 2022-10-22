@@ -99,6 +99,4 @@ const onClickFalse = () => {
     }
   }
 }
-
-
 </style>

@@ -16,6 +16,8 @@ jobs:
        uses: actions/setup-node@v3
        with:
          node-version: latest
+     - name: Install    
+       run: yarn dev
       
   testing:     
     runs-on: ubuntu-latest

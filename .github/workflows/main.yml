@@ -5,8 +5,8 @@ on:
     - main
     
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build:t
+    runs-on: ubuntu-latestty
     
     steps:
      - name: Install

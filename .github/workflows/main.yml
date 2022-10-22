@@ -9,8 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-     - name: Print hello
-       run: echo "Hello word buid"
+     - name: Install
+       uses: actions/checkout@v2.5.0
+       
+     - name: Setup node
+       uses: actions/setup-node@v3
+       with:
+         node-version: latest
       
   testing:     
     runs-on: ubuntu-latest

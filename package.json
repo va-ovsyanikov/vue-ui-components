@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.3.0",
+    "editorconfig": "^1.0.0",
     "less": "^4.1.3",
     "vue": "^3.2.37",
     "vue-draggable-next": "^2.1.1",

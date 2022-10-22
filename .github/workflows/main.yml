@@ -19,10 +19,5 @@ jobs:
      - name: Install    
        run: yarn
       
-  testing:     
-    runs-on: ubuntu-latest
-    needs: [build]
-    
-    steps:
-     - name: Print hello
-       run: echo "Hello word testing"
+     - name: Tests
+       run: yarn test

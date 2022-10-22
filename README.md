@@ -1,7 +1,3 @@
-
-Status of Last Deployment:<br>
-<img src="https://github.com/va-ovsyanikov/vue-uikit-components/workflows/UI-KIT/badge.svg?branch=main">
-
 # DMEWEB UI KIT
 
 ## Style Guide

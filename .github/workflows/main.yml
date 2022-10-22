@@ -2,7 +2,7 @@ name: UI-KIT
 on:
  push:
    branches:
-    -main
+    - main
     
 jobs:
   build:

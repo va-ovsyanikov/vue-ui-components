@@ -41,7 +41,8 @@ jobs:
         heroku_email: ${{secrets.HEROKU_EMAIL}}
         heroku_app_name: ${{secrets.HEROKU_APP}}
         procfile: "web: yarn dev"
-        
+        branch: main
+        dontuseforce: true
         
        
  

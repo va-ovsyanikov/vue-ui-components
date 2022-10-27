@@ -9,6 +9,8 @@ RUN npm install
 
 COPY .  .
 
+EXPOSE 5153
+
 CMD npm run dev
 
 # FROM node:16   AS console-builder

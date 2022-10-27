@@ -39,7 +39,7 @@ jobs:
 #        run:  docker-compose -f "docker-compose.yml" up -d --build
        uses: isbang/compose-action@v1.3.2
        with:
-         compose-file: "docker-compose.yml"
+         compose-file: "./docker-compose.yml"
       
      - name: Deploy to Heroku
        uses: AkhileshNS/heroku-deploy@v3.12.12

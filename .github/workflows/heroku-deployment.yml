@@ -8,42 +8,32 @@ on:
      - main
     
 jobs:
-#   tests:
-#     runs-on: ubuntu-latest
+  tests:
+    runs-on: ubuntu-latest
     
-#     steps:
-#      - name: Git clone to repo
-#        uses: actions/checkout@v2.5.0
+    steps:
+     - name: Git clone to repo
+       uses: actions/checkout@v2.5.0
        
-#      - name: Setup node
-#        uses: actions/setup-node@v3
-#        with:
-#          node-version: latest
+     - name: Setup node
+       uses: actions/setup-node@v3
+       with:
+         node-version: latest
          
-#      - name: Install    
-#        run: yarn
+     - name: Install    
+       run: yarn
       
-#      - name: Tests
-#        run: yarn coverage
+     - name: Tests
+       run: yarn coverage
        
        
   deploy:
     runs-on: ubuntu-latest
     
-#     needs: [tests]
+    needs: [tests]
     steps:
      - name: Git clone to repo
        uses: actions/checkout@v2.5.0
-       
-     - name: Git clone to repo
-       run: ls -la
-       
-#      - name: Docker 
-#        run: docker-compose up
-#        uses: isbang/compose-action@v1.3.2
-#        with:
-#          compose-file: "docker-compose.yml"
-       
 
      - name: Deploy to Heroku
        uses: AkhileshNS/heroku-deploy@v3.12.12
@@ -51,9 +41,8 @@ jobs:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_email: ${{secrets.HEROKU_EMAIL}}
         heroku_app_name: ${{secrets.HEROKU_APP}}
-#         procfile: "web: npm run start"
         usedocker: true
-
+    
        
  
        

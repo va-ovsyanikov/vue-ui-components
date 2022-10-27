@@ -36,7 +36,7 @@ USER static
 
 RUN thttpd
 
-CMD ["thttpd", "-D", "-h", "0.0.0.0", "-p", process.env.PORT, "-d", "/home/static", "-u", "static", "-l", "-", "-M", "60"]
+ENTRYPOINT ["thttpd", "-D", "-h", "0.0.0.0", "-p", process.env.PORT, "-d", "/home/static", "-u", "static", "-l", "-", "-M", "60"]
 
 
 

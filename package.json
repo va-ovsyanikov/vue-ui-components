@@ -16,7 +16,8 @@
     "dist"
   ],
   "scripts": {
-    "start": "vite",
+    "start":"vite",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "coverage": "vitest run --coverage",

@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  client:
+    image: uikit
+    container_name: uikit-app
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 5173:5173
+    volumes:
+      - ./src/fonts:/app/src
+
+
+
+
+

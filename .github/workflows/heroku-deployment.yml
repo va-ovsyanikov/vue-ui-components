@@ -35,6 +35,9 @@ jobs:
      - name: Git clone to repo
        uses: actions/checkout@v2.5.0
        
+     - name: Git clone to repo
+       run: ls -la
+       
      - name: Docker  
 #        uses: isbang/compose-action@v1.3.2
 #        with:

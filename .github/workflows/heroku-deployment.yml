@@ -35,17 +35,11 @@ jobs:
      - name: Git clone to repo
        uses: actions/checkout@v2.5.0
        
-#      - name: Docker  
-#        run:  docker-build -t uikit .
-#        uses: isbang/compose-action@v1.3.2
-#        with:
-#          compose-file: "docker-compose.yml"
-     - name: Build and push Docker image
-       uses: docker/build-push-action@v2.7.0
+     - name: Docker  
+       uses: isbang/compose-action@v1.3.2
        with:
-          context: .
-          file: Dockerfile
-          push: true
+         compose-file: "docker-compose.yml"
+
      - name: Deploy to Heroku
        uses: AkhileshNS/heroku-deploy@v3.12.12
        with:

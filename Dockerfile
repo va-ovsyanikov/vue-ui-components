@@ -5,13 +5,11 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN npm install
+RUN yarn
 
 COPY .  .
 
-EXPOSE 5173
-
-CMD npm run dev
+CMD yarn dev
 
 # FROM node:16   AS console-builder
 

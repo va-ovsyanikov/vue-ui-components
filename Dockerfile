@@ -1,42 +1,42 @@
 
-# FROM node:16
-
-# WORKDIR /app
-
-# COPY package.json .
-
-# RUN npm install
-
-# COPY .  .
-
-# CMD npm run dev
-FROM node:16   AS console-builder
+FROM node:16
 
 WORKDIR /app
 
 COPY package.json .
 
-RUN yarn
+RUN npm install
 
-COPY .   .
+COPY .  .
 
-RUN  yarn build
+CMD npm run dev
+# FROM node:16   AS console-builder
 
-FROM alpine:3.13.2 AS builder
+# WORKDIR /app
 
-RUN apk add thttpd
+# COPY package.json .
 
-RUN adduser -D static
+# RUN yarn
 
-WORKDIR /home/static
+# COPY .   .
 
-COPY --from=console-builder  /app/dist/  .
+# RUN  yarn build
 
-USER static
+# FROM alpine:3.13.2 AS builder
 
-RUN thttpd
+# RUN apk add thttpd
 
-ENTRYPOINT ["thttpd", "-D", "-h", "0.0.0.0", "-p", process.env.PORT, "-d", "/home/static", "-u", "static", "-l", "-", "-M", "60"]
+# RUN adduser -D static
+
+# WORKDIR /home/static
+
+# COPY --from=console-builder  /app/dist/  .
+
+# USER static
+
+# RUN thttpd
+
+# CMD ["thttpd", "-D", "-h", "0.0.0.0", "-p", "5173", "-d", "/home/static", "-u", "static", "-l", "-", "-M", "60"]
 
 
 

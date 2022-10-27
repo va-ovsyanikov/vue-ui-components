@@ -36,7 +36,7 @@ export default defineConfig({
 		},
 	},
 	server: {
-		host: '0.0.0.0',
+		host: process.env.PORT,
 		watch: {
 			usePolling: true
 		}

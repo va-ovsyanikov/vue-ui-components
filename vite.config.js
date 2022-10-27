@@ -35,11 +35,10 @@ export default defineConfig({
 			"@": path.resolve(__dirname, "./src"),
 		},
 	},
-	// для docker vite
-	// server: {
-	// 	host: '0.0.0.0',
-	// 	watch: {
-	// 		usePolling: true
-	// 	}
-	// }
+	server: {
+		host: '0.0.0.0',
+		watch: {
+			usePolling: true
+		}
+	}
 })

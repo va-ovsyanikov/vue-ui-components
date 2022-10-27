@@ -33,9 +33,6 @@ jobs:
     steps:
      - name: Git clone to repo
        uses: actions/checkout@v2.5.0
-     
-     - name: Docker
-       run: docker-compose up
       
      - name: Deploy to Heroku
        uses: AkhileshNS/heroku-deploy@v3.12.12

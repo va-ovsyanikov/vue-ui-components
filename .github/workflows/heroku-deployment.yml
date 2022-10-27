@@ -38,11 +38,12 @@ jobs:
      - name: Git clone to repo
        run: ls -la
        
-     - name: Docker  
+#      - name: Docker 
+#        run: docker-compose up
 #        uses: isbang/compose-action@v1.3.2
 #        with:
 #          compose-file: "docker-compose.yml"
-       run: docker-compose up
+       
 
      - name: Deploy to Heroku
        uses: AkhileshNS/heroku-deploy@v3.12.12

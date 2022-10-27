@@ -8,32 +8,39 @@ on:
      - main
     
 jobs:
-  tests:
-    runs-on: ubuntu-latest
+#   tests:
+#     runs-on: ubuntu-latest
     
-    steps:
-     - name: Git clone to repo
-       uses: actions/checkout@v2.5.0
+#     steps:
+#      - name: Git clone to repo
+#        uses: actions/checkout@v2.5.0
        
-     - name: Setup node
-       uses: actions/setup-node@v3
-       with:
-         node-version: latest
+#      - name: Setup node
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: latest
          
-     - name: Install    
-       run: yarn
+#      - name: Install    
+#        run: yarn
       
-     - name: Tests
-       run: yarn coverage
+#      - name: Tests
+#        run: yarn coverage
+       
        
   deploy:
     runs-on: ubuntu-latest
     
-    needs: [tests]
+#     needs: [tests]
     steps:
      - name: Git clone to repo
        uses: actions/checkout@v2.5.0
-      
+       
+     - name: Docker  
+#        uses: isbang/compose-action@v1.3.2
+#        with:
+#          compose-file: "docker-compose.yml"
+       run: docker-compose up
+
      - name: Deploy to Heroku
        uses: AkhileshNS/heroku-deploy@v3.12.12
        with:

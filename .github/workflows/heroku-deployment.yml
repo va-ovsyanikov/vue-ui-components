@@ -36,7 +36,10 @@ jobs:
        uses: actions/checkout@v2.5.0
        
      - name: Docker  
-       run:  docker-compose -f "docker-compose.yml" up -d --build
+#        run:  docker-compose -f "docker-compose.yml" up -d --build
+       uses: isbang/compose-action@v1.3.2
+       with:
+         compose-file: "docker-compose.yml"
       
      - name: Deploy to Heroku
        uses: AkhileshNS/heroku-deploy@v3.12.12

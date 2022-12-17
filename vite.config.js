@@ -5,7 +5,6 @@ import path from "path"
 // https://vitejs.dev/config/
 export default defineConfig({
 	build: {
-		// для npm пакета  ----
 		lib: {
 			entry: path.resolve(__dirname, 'src/index.js'),
 			name: 'dme-web-ui',
@@ -19,7 +18,6 @@ export default defineConfig({
 				}
 			}
 		}
-		// ---------------------------
 	},
 	publicDir:'./src/fonts', //добавляет файлы в папку dist  при сборке
 	test: {

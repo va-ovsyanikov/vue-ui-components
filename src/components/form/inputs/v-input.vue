@@ -1,5 +1,5 @@
 <template>
-  <div :class="['input', { error: error }, { focus: focus }]">
+  <div :class="addClass">
     <v-group
       :error="error"
       :required="required"
@@ -37,7 +37,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import vGroup from "../addons-group/v-group.vue";
 import vIcon from "../../icons/v-icon.vue";
 const props = defineProps({
@@ -82,6 +82,15 @@ const props = defineProps({
     default: "",
   },
 });
+
+//class
+const addClass = computed(()=>{
+	return {
+		'input':true,
+		'error': props.error,
+		'focus': focus.value
+	}
+})
 
 //focus variable
 let focus = ref(false);

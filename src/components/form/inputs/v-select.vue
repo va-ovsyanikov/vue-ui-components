@@ -1,11 +1,6 @@
 <template>
   <div
-    :class="[
-      'select',
-      { focus: focus },
-      { error: error },
-      { disabled: disabled },
-    ]"
+    :class="addClass"
   >
     <v-group
       :error="error"
@@ -40,7 +35,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import vGroup from '../addons-group/v-group.vue'
 import vIcon from "../../icons/v-icon.vue"
 const props = defineProps({
@@ -86,6 +81,17 @@ const props = defineProps({
     required: true
   },
 });
+
+// class
+const addClass = computed(()=>{
+	return {
+		'select':true,
+    'focus': focus.value,
+    'error': props.error,
+    'disabled': props.disabled,
+	}
+})
+
 //focus
 const focus = ref(false);
 

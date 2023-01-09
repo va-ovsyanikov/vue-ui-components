@@ -1,9 +1,10 @@
 <template>
-  <div :class="['list', { disabled: disabled }]">
+  <div :class="addClass">
       <slot></slot>
   </div>
 </template>
 <script setup>
+import {computed} from 'vue';
 const props = defineProps({
   icon: {
     type: String,
@@ -14,6 +15,14 @@ const props = defineProps({
     default: false,
   },
 });
+
+//class
+const addClass = computed(()=>{
+	return{
+		'list':true,
+		'disabled': props.disabled
+	}
+})
 </script>
 <style lang="less" scoped>
 .list {

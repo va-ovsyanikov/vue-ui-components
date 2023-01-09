@@ -65,6 +65,7 @@ const cancel = () => {
 const send = () => {
 	console.log('sdfsdf');
 }
+
 </script>
 
 <style lang="less" scoped>

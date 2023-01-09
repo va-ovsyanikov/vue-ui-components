@@ -1,11 +1,6 @@
 <template>
   <div
-    :class="[
-      'textarea',
-      { focus: focus },
-      { error: error },
-      { disabled: disabled },
-    ]"
+    :class="addClass"
   >
     <v-group
       :error="error"
@@ -30,7 +25,7 @@
 
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import vGroup from '../addons-group/v-group.vue'
 const props = defineProps({
   modelValue: {
@@ -66,6 +61,17 @@ const props = defineProps({
     default: false,
   },
 });
+
+// class
+const addClass = computed(()=>{
+	return {
+		'textarea':true,
+    'focus': focus.value,
+    'error': props.error,
+    'disabled': props.disabled,
+	}
+})
+
 
 //focus
 const focus = ref(false);

@@ -3,13 +3,13 @@
     <v-group :label="label">
       <div class="boolean__wrap">
         <button
-          :class="['boolean__btn__true', { active: modelValue === true }]"
+          :class="addClassTrue"
           @click="onClickTrue"
         >
           {{ trueText }}
         </button>
         <button
-          :class="['boolean__btn__false', { active: modelValue === false }]"
+          :class="addClassFalse"
           @click="onClickFalse"
         >
           {{ falseText }}
@@ -20,6 +20,7 @@
 </template>
 
 <script setup>
+import {computed} from 'vue';
 const props = defineProps({
   modelValue: {
     type: Boolean,
@@ -39,7 +40,22 @@ const props = defineProps({
   },
 });
 
-//emit
+//class true
+const addClassTrue = computed(()=>{
+	return{
+		'boolean__btn__true':true,
+		'active': props.modelValue === true
+	}
+})
+
+//class false
+const addClassFalse = computed(()=>{
+	return{
+		'boolean__btn__false':true,
+		'active': props.modelValue === false
+	}
+})
+
 const emit = defineEmits(["update:modelValue"]);
 const updateValue = (value) => {
   emit("update:modelValue", value);

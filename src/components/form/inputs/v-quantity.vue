@@ -1,5 +1,5 @@
 <template>
-  <div :class="['quantity', { error: error }, { disabled: disabled }]">
+  <div :class="addClass">
     <v-group
       :label="label"
       :errorMessage="errorMessage"
@@ -72,6 +72,17 @@ const props = defineProps({
     default: false,
   },
 });
+
+// class
+const addClass = computed(()=>{
+	return {
+		'quantity':true,
+		'error': props.error,
+		'disabled': props.disabled
+	}
+})
+
+
 
 const count = ref(props.min);
 

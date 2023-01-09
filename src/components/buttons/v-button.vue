@@ -1,13 +1,7 @@
 <template>
 	<a
 		href="#"
-		:class="[
-			'btn',
-			`btn-${type}`,
-			{ loading: loading },
-			{ disabled: disabled },
-			{ iconOnly: iconOnly },
-		]"
+		:class="addClass"
 		@click.prevent="onClick"
 	>
 		<span v-if="loading" class="btn__spinner"></span>
@@ -17,6 +11,7 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
 import vIcon from "../icons/v-icon.vue";
 const props = defineProps({
 	type: {
@@ -45,6 +40,17 @@ const props = defineProps({
 		default: () => {},
 	},
 });
+
+//class
+const addClass = computed(()=>{
+	return {
+		'btn':true,
+		[`btn-${props.type}`]: props.type,
+		'loading': props.loading,
+		'disabled': props.disabled,
+		'iconOnly': props.iconOnly,
+	}
+})
 </script>
 
 <style lang="less" scoped>

@@ -1,17 +1,13 @@
 <template>
 	<label
-		:class="[
-			'label',
-			{ focus: focus },
-			{ error: error },
-			{ disabled: disabled },
-		]"
+		:class="addClass"
 		>{{ label
 		}}<span v-if="required && label" class="label__required">*</span>
 	</label>
 </template>
 
 <script setup>
+import {computed} from 'vue';
 const props = defineProps({
 	required: {
 		type: Boolean,
@@ -34,6 +30,16 @@ const props = defineProps({
 		default: "",
 	},
 });
+
+//class
+const addClass = computed(()=>{
+	return {
+		'label':true,
+		'focus': props.focus,
+		'error': props.error,
+		'disabled': props.disabled,
+	}
+})
 </script>
 
 <style lang="less" scoped>
